@@ -94,7 +94,7 @@ pub fn search(mut app: Signal<app::App>) -> Element{
             for m in app().search_memos{
                 div {
                     style: "width:calc(100%-20px); margin-left: 10px; margin-right: 20px; text-align: left;",
-                    title: {m.path.to_string()},
+                    title: m.path.to_string(),
                     hr{}
                     pre {
                         style: "width:100%; margin: 5px; white-space: pre-wrap;",
