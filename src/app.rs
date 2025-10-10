@@ -4,6 +4,7 @@ use dioxus::desktop::tao::event::Event;
 use tao::event;
 
 use super::json::*;
+use super::define::*;
 use super::memo;
 
 #[derive(Debug, Clone, PartialEq)]
@@ -134,6 +135,14 @@ pub fn event_handler<UserWindowEvent>(event: &Event<UserWindowEvent>, mut app: S
         app().json.save();
         //if &get_exe_path() == common::EXEPATH {kill_dx();}
     }  
+
+    if let Event::WindowEvent {//フォーカスが変更されたときは、ctrlを押した判定をfalseにする
+        event: WindowEvent::Focused(_new_focused),
+        ..
+    } = event
+    {
+        app.write().is_pressed_ctrl = false;
+    }
 
     if let Event::DeviceEvent{
         event: dioxus::desktop::tao::event::DeviceEvent::Key(key),
