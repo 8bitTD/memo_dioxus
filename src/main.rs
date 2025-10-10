@@ -19,7 +19,6 @@ fn set_exec(){
     json.load();
     let pos = dioxus::desktop::tao::dpi::PhysicalPosition::new(json.wi.pos_x, json.wi.pos_y);
     let size = dioxus::desktop::tao::dpi::PhysicalSize::new(json.wi.width, json.wi.height);
-    //let win_ico = icon::load_icon_from_url(define::common::WINDOWICON);
     let win_ico = icon::load_icon();
     let wb = dioxus::desktop::WindowBuilder::new()
         .with_always_on_top(false)
