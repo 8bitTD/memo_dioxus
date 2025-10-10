@@ -13,7 +13,8 @@ dx serve --release
 
 ## 使い方
 　memo_dioxus.exeをダブルクリックするとGUIが表示されます<br>
-　
+　<img width="488" height="293" alt="image" src="https://github.com/user-attachments/assets/aa38f0b1-43e1-44d8-a5b6-b6a80b34e2c9" />
+
 ### タブを作成 (ctrl + t)
 　<img width="312" height="138" alt="image" src="https://github.com/user-attachments/assets/d888eee4-ad8a-45d1-9d7f-96194be7a124" />
 
