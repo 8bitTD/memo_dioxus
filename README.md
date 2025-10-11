@@ -59,4 +59,4 @@ dx serve --release
 　メモが削除されます<br>
 
 ## 動作確認
-　Windows10
+　Windows10, 11
