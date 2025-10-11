@@ -4,7 +4,6 @@ use dioxus::desktop::tao::event::Event;
 use tao::event;
 
 use super::json::*;
-use super::define::*;
 use super::memo;
 
 #[derive(Debug, Clone, PartialEq)]
@@ -63,7 +62,7 @@ pub struct App{
     pub search_string: String,
     pub is_search: bool,
     pub search_memos: Vec<memo::SearchMemo>,
-    pub search_message: String,
+    pub search_result_message: String,
 }
 impl Default for App{
     fn default() -> App{
@@ -80,7 +79,7 @@ impl Default for App{
             search_string: String::new(),
             is_search: false,
             search_memos: Vec::new(),
-            search_message: String::new(),
+            search_result_message: String::new(),
         }
     }
 }

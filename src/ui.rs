@@ -2,7 +2,6 @@ use dioxus::prelude::*;
 
 use dioxus::desktop::use_wry_event_handler;
 use futures_util::StreamExt;
-use std::os::windows::process::CommandExt;
 
 use super::app;
 use super::memo;
@@ -27,7 +26,7 @@ pub fn ui() -> Element {
         while let Some(res) = rx.next().await { 
             app.write().is_search = res.is_search;
             app.write().search_memos = res.search_memos;
-            app.write().search_message = res.search_message;
+            app.write().search_result_message = res.search_result_message;
         }
     });
     
@@ -63,7 +62,7 @@ pub fn search(mut app: Signal<app::App>) -> Element{
                     onclick: move |_| { 
                         if !app().search_string.is_empty(){
                             app.write().search_memos.clear();
-                            app.write().search_message = String::new();
+                            app.write().search_result_message = String::new();
                             app.write().is_search = true;
                         }
                     },
@@ -85,7 +84,7 @@ pub fn search(mut app: Signal<app::App>) -> Element{
                     src: "https://img.icons8.com/external-others-inmotus-design/32/external-Loading-loaders-others-inmotus-design-18.png"
                 }
             }
-            label { "{app().search_message}" }
+            label { "{app().search_result_message}" }
             
         }
 
@@ -186,7 +185,7 @@ pub fn home(mut app: Signal<app::App>,  mut elements: Signal<Vec<std::rc::Rc<Mou
                     disabled: "{is_busy.read()}",
                     onclick: move |_| async move {
                         app.write().search_memos.clear();
-                        app.write().search_message = String::new();
+                        app.write().search_result_message = String::new();
                         app.write().search_string = String::new();
                         app.write().state = app::State::Search; 
                     }, 

@@ -6,14 +6,14 @@ use super::app::*;
 
 #[derive(Debug, Clone)]
 pub struct ResultSearch {
-    pub search_message: String,
+    pub search_result_message: String,
     pub is_search: bool,
     pub search_memos: Vec<SearchMemo>,
 }
 impl ResultSearch{
-    pub fn new(search_message: &str, is_search: bool, search_memos: Vec<SearchMemo>) -> ResultSearch{
+    pub fn new(search_result_message: &str, is_search: bool, search_memos: Vec<SearchMemo>) -> ResultSearch{
         ResultSearch { 
-            search_message: search_message.into(),
+            search_result_message: search_result_message.into(),
             is_search: is_search,
             search_memos: search_memos 
         }
